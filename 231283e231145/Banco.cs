@@ -60,6 +60,13 @@ namespace _231283e231145
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE cidades" + 
+                    "( id int auto_increment primary key," +
+                    "nome VARCHAR(40)," +
+                    "uf VARCHAR(2) )", Conexao);
+
+                Comando.ExecuteNonQuery();
+
                 FecharConexao();
             }
             catch (Exception e)
