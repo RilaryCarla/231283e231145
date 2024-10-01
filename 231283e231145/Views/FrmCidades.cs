@@ -15,12 +15,12 @@ namespace _231283e231145.Views
     public partial class FrmCidades : Form
     {
         Cidade c;
-        int count = 0;
+        
         public FrmCidades()
         {
             InitializeComponent();
-            count++;
-            txtID.Text = count.ToString();
+            
+          
 
         }
 
@@ -28,8 +28,8 @@ namespace _231283e231145.Views
         {
             if (txtNome.Text == string.Empty) return;
 
-            dgvCidades.Rows.Add(txtID.Text, txtNome.Text, txtUF.Text);
-            txtID.Text = count++.ToString();
+            
+           
             c = new Cidade()
             {
                 nome = txtNome.Text,
@@ -47,8 +47,7 @@ namespace _231283e231145.Views
 
         private void FrmCidades_Load(object sender, EventArgs e)
         {
-            Limpar();
-            CarregarGrid("");
+          
         }
 
         public void Limpar()
@@ -140,6 +139,12 @@ namespace _231283e231145.Views
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmCidades_Load_1(object sender, EventArgs e)
+        {
+            Limpar();
+            CarregarGrid("");
         }
     }
 }

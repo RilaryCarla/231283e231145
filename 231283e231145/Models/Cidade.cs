@@ -94,7 +94,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT * FROM cidades WHERE nome like @nome" +
+                Banco.Comando = new MySqlCommand("SELECT * FROM cidades WHERE nome like @nome " +
                     "order by nome", Banco.Conexao);
 
 
