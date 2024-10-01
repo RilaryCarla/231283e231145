@@ -196,7 +196,7 @@
             // 
             // txtPesquisa
             // 
-            this.txtPesquisa.Location = new System.Drawing.Point(10, 48);
+            this.txtPesquisa.Location = new System.Drawing.Point(6, 48);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(518, 20);
             this.txtPesquisa.TabIndex = 1;
