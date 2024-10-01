@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _231283e231145.Views;
+
 
 namespace _231283e231145
 {
@@ -23,6 +25,10 @@ namespace _231283e231145
             Banco.CriarBanco();
         }
 
-
+        private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCidades form = new FrmCidades();
+            form.Show();
+        }
     }
 }

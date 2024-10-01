@@ -40,11 +40,13 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnProcurar = new System.Windows.Forms.Button();
             this.dgvCidades = new System.Windows.Forms.DataGridView();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnProcurar = new System.Windows.Forms.Button();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.colNomeCidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +107,7 @@
             this.btnIncluir.TabIndex = 6;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -154,6 +157,45 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
+            // dgvCidades
+            // 
+            this.dgvCidades.AllowUserToAddRows = false;
+            this.dgvCidades.AllowUserToDeleteRows = false;
+            this.dgvCidades.AllowUserToOrderColumns = true;
+            this.dgvCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clId,
+            this.colNomeCidad,
+            this.colUF});
+            this.dgvCidades.Location = new System.Drawing.Point(10, 95);
+            this.dgvCidades.Name = "dgvCidades";
+            this.dgvCidades.ReadOnly = true;
+            this.dgvCidades.Size = new System.Drawing.Size(624, 150);
+            this.dgvCidades.TabIndex = 3;
+            this.dgvCidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCidades_CellClick);
+            // 
+            // clId
+            // 
+            this.clId.HeaderText = "Id";
+            this.clId.Name = "clId";
+            this.clId.ReadOnly = true;
+            // 
+            // btnProcurar
+            // 
+            this.btnProcurar.Location = new System.Drawing.Point(534, 45);
+            this.btnProcurar.Name = "btnProcurar";
+            this.btnProcurar.Size = new System.Drawing.Size(75, 23);
+            this.btnProcurar.TabIndex = 2;
+            this.btnProcurar.Text = "Procurar";
+            this.btnProcurar.UseVisualStyleBackColor = true;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(10, 48);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(518, 20);
+            this.txtPesquisa.TabIndex = 1;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -163,41 +205,17 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Digite o nome da Cidade para Pesquisas: ";
             // 
-            // txtPesquisa
+            // colNomeCidad
             // 
-            this.txtPesquisa.Location = new System.Drawing.Point(10, 48);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(518, 20);
-            this.txtPesquisa.TabIndex = 1;
+            this.colNomeCidad.HeaderText = "Nome";
+            this.colNomeCidad.Name = "colNomeCidad";
+            this.colNomeCidad.ReadOnly = true;
             // 
-            // btnProcurar
+            // colUF
             // 
-            this.btnProcurar.Location = new System.Drawing.Point(559, 20);
-            this.btnProcurar.Name = "btnProcurar";
-            this.btnProcurar.Size = new System.Drawing.Size(75, 23);
-            this.btnProcurar.TabIndex = 2;
-            this.btnProcurar.Text = "Procurar";
-            this.btnProcurar.UseVisualStyleBackColor = true;
-            // 
-            // dgvCidades
-            // 
-            this.dgvCidades.AllowUserToAddRows = false;
-            this.dgvCidades.AllowUserToDeleteRows = false;
-            this.dgvCidades.AllowUserToOrderColumns = true;
-            this.dgvCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clId});
-            this.dgvCidades.Location = new System.Drawing.Point(10, 95);
-            this.dgvCidades.Name = "dgvCidades";
-            this.dgvCidades.ReadOnly = true;
-            this.dgvCidades.Size = new System.Drawing.Size(624, 150);
-            this.dgvCidades.TabIndex = 3;
-            // 
-            // clId
-            // 
-            this.clId.HeaderText = "Id";
-            this.clId.Name = "clId";
-            this.clId.ReadOnly = true;
+            this.colUF.HeaderText = "UF";
+            this.colUF.Name = "colUF";
+            this.colUF.ReadOnly = true;
             // 
             // FrmCidades
             // 
@@ -247,5 +265,7 @@
         private System.Windows.Forms.Button btnProcurar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeCidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUF;
     }
 }
