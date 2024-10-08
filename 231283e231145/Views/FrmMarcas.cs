@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _231283e231145.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace _231283e231145.Views
         public FrmMarcas()
         {
             InitializeComponent();
+        }
+
+        public void Limpar()
+        {
+            txtId.Text = "";
+            txtNome.Text = "";
+            txtPesquisa.Text = "";
+        }
+
+       
+        private void btnIncluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
