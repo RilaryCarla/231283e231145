@@ -99,20 +99,63 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco.cs" />
+    <Compile Include="Consulta.cs" />
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Caixa.cs" />
     <Compile Include="Models\Cidade.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Marcas.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\VendaCab.cs" />
+    <Compile Include="Models\VendaDet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCaixa.Designer.cs">
+      <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmCidades.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FrmCidades.Designer.cs">
       <DependentUpon>FrmCidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmConsultaVendaCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConsultaVendaCat.Designer.cs">
+      <DependentUpon>FrmConsultaVendaCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmConsultaVendaProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConsultaVendaProd.Designer.cs">
+      <DependentUpon>FrmConsultaVendaProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMarcas.Designer.cs">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Venda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Venda.Designer.cs">
+      <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
@@ -126,8 +169,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FrmCaixa.resx">
+      <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCidades.resx">
       <DependentUpon>FrmCidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmConsultaVendaCat.resx">
+      <DependentUpon>FrmConsultaVendaCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmConsultaVendaProd.resx">
+      <DependentUpon>FrmConsultaVendaProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMarcas.resx">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Venda.resx">
+      <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
