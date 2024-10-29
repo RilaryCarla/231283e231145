@@ -1,20 +1,20 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Data;
 using System.Windows.Forms;
-
 
 namespace _231283e231145.Models
 {
-    internal class Marcas
+    internal class Categorias
     {
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Categoria { get; set; }
 
-        public string nome { get; set; }
+       
 
         public void Incluir()
         {
@@ -22,14 +22,30 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("INSERT INTO Marcas (nome) VALUES (@nome)", Banco.Conexao);
-
-                Banco.Comando.Parameters.AddWithValue("@nome", nome);
-
+                Banco.Comando = new MySqlCommand("INSERT INTO categorias(categoria) VALUES (@categoria)");
+                Banco.Comando.Parameters.AddWithValue("@categoria", Categoria);
                 Banco.Comando.ExecuteNonQuery();
 
                 Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
+
+        public void Excluir()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("DELETE FROM categorias WHERE categoria = @categoria", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@categoria", Categoria);
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
             }
             catch (Exception e)
             {
@@ -43,37 +59,17 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("UPDATE marcas SET nome = @nome WHERE id = @id", Banco.Conexao);
-
-                Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@id", id);
-
+                Banco.Comando = new MySqlCommand("UPDATE categorias SET categoria = @categoria WHERE id = @id", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@categoria", Categoria);
+                Banco.Comando.Parameters.AddWithValue("@id", Id);
                 Banco.Comando.ExecuteNonQuery();
 
                 Banco.FecharConexao();
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        public void Excluir()
-        {
-            try
-            {
-                Banco.AbrirConexao();
-
-                Banco.Comando = new MySqlCommand("DELETE FROM marcas WHERE id = @id", Banco.Conexao);
-
-                Banco.Comando.Parameters.AddWithValue("@id", id);
-                Banco.Comando.ExecuteNonQuery();
-
-                Banco.FecharConexao();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -82,25 +78,24 @@ namespace _231283e231145.Models
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("SELECT * FROM marcas WHERE nome like @nome " +
-                    "order by nome", Banco.Conexao);
 
-                Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
-                Banco.Comando.ExecuteNonQuery();
+                Banco.Comando = new MySqlCommand("SELECT * FROM categoria WHERE categoria like @categoria" +
+                    "order by categoria", Banco.Conexao);
+
+                Banco.Comando.Parameters.AddWithValue("@categoria", Categoria + "%");
 
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.datTabela);
-
                 Banco.FecharConexao();
+
                 return Banco.datTabela;
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
     }
-
 }

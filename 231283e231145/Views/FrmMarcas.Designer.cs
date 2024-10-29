@@ -65,9 +65,9 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(174, 21);
+            this.txtId.Location = new System.Drawing.Point(174, 34);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(42, 20);
             this.txtId.TabIndex = 3;
             // 
             // txtNome
@@ -99,6 +99,7 @@
             this.dgvMarca.ReadOnly = true;
             this.dgvMarca.Size = new System.Drawing.Size(356, 150);
             this.dgvMarca.TabIndex = 13;
+            this.dgvMarca.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellClick);
             // 
             // btnPesquisar
             // 
@@ -108,6 +109,7 @@
             this.btnPesquisar.TabIndex = 12;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -134,6 +136,7 @@
             this.btnAlterar.TabIndex = 7;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -143,6 +146,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
@@ -152,6 +156,7 @@
             this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // bntSair
             // 
@@ -161,6 +166,7 @@
             this.bntSair.TabIndex = 10;
             this.bntSair.Text = "Fechar";
             this.bntSair.UseVisualStyleBackColor = true;
+            this.bntSair.Click += new System.EventHandler(this.bntSair_Click);
             // 
             // FrmMarcas
             // 

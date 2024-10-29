@@ -24,6 +24,8 @@ namespace _231283e231145.Views
 
         }
 
+        
+
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             if (txtNome.Text == string.Empty) return;

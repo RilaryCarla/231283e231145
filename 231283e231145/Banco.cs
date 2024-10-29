@@ -73,6 +73,12 @@ namespace _231283e231145
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categorias" +
+                    "( id int auto_increment primary key," +
+                    "categoria CHAR(20) )", Conexao);
+
+                Comando.ExecuteNonQuery();
+
 
 
                 FecharConexao();

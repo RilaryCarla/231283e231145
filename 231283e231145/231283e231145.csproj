@@ -51,8 +51,8 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.1.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -107,6 +107,7 @@
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Caixa.cs" />
+    <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Marcas.cs" />
@@ -120,6 +121,12 @@
     </Compile>
     <Compile Include="Views\FrmCaixa.Designer.cs">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmCidades.cs">
       <SubType>Form</SubType>
@@ -171,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="Views\FrmCaixa.resx">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCidades.resx">
       <DependentUpon>FrmCidades.cs</DependentUpon>
