@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _231283e231145.Models
@@ -79,7 +75,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT * FROM categoria WHERE categoria like @categoria" +
+                Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categorias LIKE @categoria" +
                     "order by categoria", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@categoria", Categoria + "%");

@@ -80,13 +80,13 @@ namespace _231283e231145
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS clientes" +
-                    "( id int auto_increment primary key," +
+                    "( id INTEGER auto_increment primary key," +
                     "nome CHAR(40)," +
                     "idCidade INTEGER," +
                     "dataNasc DATE," +
                     "renda DECIMAL(10,2), " +
                     "cpf CHAR(14)," +
-                    "fotO VARCHAR(100)," +
+                    "foto VARCHAR(100)," +
                     "venda BOOLEAN)", Conexao);
 
                 Comando.ExecuteNonQuery();
