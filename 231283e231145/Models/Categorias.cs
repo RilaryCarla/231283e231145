@@ -75,7 +75,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categorias LIKE @categoria" +
+                Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categoria LIKE @categoria" +
                     "order by categoria", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@categoria", Categoria + "%");
@@ -83,8 +83,8 @@ namespace _231283e231145.Models
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.datTabela);
-                Banco.FecharConexao();
 
+                Banco.FecharConexao();
                 return Banco.datTabela;
             }
             catch (Exception e) 
