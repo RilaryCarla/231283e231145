@@ -37,8 +37,8 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("DELETE FROM categorias WHERE categoria = @categoria", Banco.Conexao);
-                Banco.Comando.Parameters.AddWithValue("@categoria", Categoria);
+                Banco.Comando = new MySqlCommand("DELETE FROM categorias WHERE id = @id", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@id", Id);
                 Banco.Comando.ExecuteNonQuery();
 
                 Banco.FecharConexao();
@@ -76,7 +76,7 @@ namespace _231283e231145.Models
                 Banco.AbrirConexao();
 
                 Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categoria LIKE @categoria" +
-                    "order by categoria", Banco.Conexao);
+                    "order by id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@categoria", Categoria + "%");
 
