@@ -17,7 +17,7 @@ namespace _231283e231145.Models
         public DateTime DataNasc {  get; set; }
         public double Renda { get; set; }
         public string cpf { get; set; }
-        public string Foto { get; set; }
+       
         public bool Venda { get; set; }
 
         public void Incluir()
@@ -25,15 +25,14 @@ namespace _231283e231145.Models
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("INSERT INTO clientes(nome,idCidade,dataNasc, renda, cpf, foto, venda)" +
-                    "VALUES(@nome, @idCidade, @dataNasc, @renda, @cpf, @foto, @venda)", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO clientes (nome,idCidade,dataNasc, renda, cpf, venda) " +
+                    "VALUES (@nome, @idCidade, @dataNasc, @renda, @cpf, @venda)", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", Nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", IdCidade);
                 Banco.Comando.Parameters.AddWithValue("@dataNasc", DataNasc);
                 Banco.Comando.Parameters.AddWithValue("@renda", Renda);
-                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
-                Banco.Comando.Parameters.AddWithValue("@foto", Foto);
+                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);         
                 Banco.Comando.Parameters.AddWithValue("@venda", Venda);
                 Banco.Comando.ExecuteNonQuery();
 
@@ -68,14 +67,16 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
-                    "inner join cidades ci ON cl.idCidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl INNER JOIN cidades ci ON (ci.id = cl.idCidade) WHERE cl.nome LIKE @nome ORDER BY cl.nome", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", Nome + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.datTabela);
 
+                Banco.FecharConexao();
+
                 return Banco.datTabela;
+
 
 
             }
@@ -95,15 +96,14 @@ namespace _231283e231145.Models
                 Banco.AbrirConexao();
 
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, idCidade = @idCidade, dataNasc = @datanasc," +
-                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, idCidade = @idCidade, dataNasc = @dataNasc, " +
+                    "renda = @renda, cpf = @cpf, venda = @venda WHERE id = @id ", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", Nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", IdCidade);
                 Banco.Comando.Parameters.AddWithValue("@dataNasc", DataNasc);
                 Banco.Comando.Parameters.AddWithValue("@renda", Renda);
-                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
-                Banco.Comando.Parameters.AddWithValue("@foto", Foto);
+                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);              
                 Banco.Comando.Parameters.AddWithValue("@venda", Venda);
                 Banco.Comando.Parameters.AddWithValue("@id", Id);
                 Banco.Comando.ExecuteNonQuery();

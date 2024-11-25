@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace _231283e231145.Models
 {
-    internal class Categorias
+    public class Categorias
     {
         public int Id { get; set; }
         public string Categoria { get; set; }
@@ -18,7 +18,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("INSERT INTO categorias(categoria) VALUES (@categoria)");
+                Banco.Comando = new MySqlCommand("INSERT INTO categorias(categoria) VALUES (@categoria)", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@categoria", Categoria);
                 Banco.Comando.ExecuteNonQuery();
 
@@ -75,7 +75,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categoria LIKE @categoria" +
+                Banco.Comando = new MySqlCommand("SELECT * FROM categorias WHERE categoria LIKE @categoria " +
                     "order by id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@categoria", Categoria + "%");

@@ -62,7 +62,7 @@ namespace _231283e231145.Views
         {
             c = new Categorias()
             {
-                Categoria = txtCategoria.Text
+                Id = int.Parse(txtid.Text),
             };
 
             c.Excluir();

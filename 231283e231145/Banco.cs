@@ -80,17 +80,25 @@ namespace _231283e231145
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS clientes" +
-                    "( id INTEGER auto_increment primary key," +
+                    "( id integer auto_increment primary key," +
                     "nome CHAR(40)," +
                     "idCidade INTEGER," +
                     "dataNasc DATE," +
                     "renda DECIMAL(10,2), " +
-                    "cpf CHAR(14)," +
-                    "foto VARCHAR(100)," +
+                    "cpf CHAR(14)," +                    
                     "venda BOOLEAN)", Conexao);
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS produtos" +
+                    "(id int auto_increment primary key, " +
+                    "descricao char(40), " +
+                    "idCategoria integer, " +
+                    "idMarca integer, " +
+                    "estoque decimal(10,3), " +
+                    "valorVenda decimal(10,2))", Conexao);
+
+                Comando.ExecuteNonQuery();
 
 
                 FecharConexao();

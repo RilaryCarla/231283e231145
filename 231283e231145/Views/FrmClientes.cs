@@ -15,22 +15,22 @@ namespace _231283e231145.Views
 {
     public partial class FrmClientes : Form
     {
-        Cidade ci;
-        Cliente cl;
+        Cidade c;
+        Cliente cc;
         public FrmClientes()
         {
             InitializeComponent();
-
+            CarregarGrid("");
         }
 
         void CarregarGrid(string pesquisa)
         {
-            cl = new Cliente()
+            cc = new Cliente()
             {
                 Nome = pesquisa,
             };
 
-            cl.Consultar();
+            cc.Consultar();
         }
         void Limpar()
         {
@@ -50,17 +50,15 @@ namespace _231283e231145.Views
             //Cria um objeto do tipo cidade 
             //e alimenta o combobox
 
-            ci = new Cidade();
-            cboCidades.DataSource = ci.Consultar();
+            c = new Cidade();
+            cboCidades.DataSource = c.Consultar();
             cboCidades.DisplayMember = "nome";
             cboCidades.ValueMember = "id";
 
             Limpar();
             CarregarGrid("");
 
-            //Deixa invisível colunas do Grid
-            dgvClientes.Columns["idCidade"].Visible = false;
-            dgvClientes.Columns["foto"].Visible = false;
+           
         }
 
         public void cboCidades_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,17 +82,16 @@ namespace _231283e231145.Views
         {
             if (txtNome.Text == "") return;
 
-            cl = new Cliente()
+            cc = new Cliente()
             {
                 Nome = txtNome.Text,
-                IdCidade = (int)cboCidades.SelectedItem,
+                IdCidade = (int)cboCidades.SelectedValue,
                 DataNasc = dtpDataNasc.Value,
                 Renda = double.Parse(txtRenda.Text),
-                cpf = mskCPF.Text,
-                Foto = picFoto.ImageLocation,
-                Venda = chkVenda.Checked,
+                cpf = mskCPF.Text,              
+                Venda = chkVenda.Checked
             };
-            cl.Incluir();
+            cc.Incluir();
 
             Limpar();
             CarregarGrid("");
@@ -112,7 +109,7 @@ namespace _231283e231145.Views
                 mskCPF.Text = dgvClientes.CurrentRow.Cells["cpf"].Value.ToString();
                 dtpDataNasc.Text = dgvClientes.CurrentRow.Cells["dataNasc"].Value.ToString();
                 txtRenda.Text = dgvClientes.CurrentRow.Cells["renda"].Value.ToString();
-                picFoto.ImageLocation = dgvClientes.CurrentRow.Cells["foto"].Value.ToString();
+                
             }
 
         }
@@ -121,7 +118,7 @@ namespace _231283e231145.Views
         {
             if (txtID.Text == "") return;
 
-            cl = new Cliente()
+            cc = new Cliente()
             {
                 Id = int.Parse(txtID.Text),
                 Nome = txtNome.Text,
@@ -129,10 +126,10 @@ namespace _231283e231145.Views
                 DataNasc = dtpDataNasc.Value,
                 Renda = double.Parse(txtRenda.Text),
                 cpf = mskCPF.Text,
-                Foto = picFoto.ImageLocation,
+               
                 Venda = chkVenda.Checked,
             };
-            cl.Alterar();
+            cc.Alterar();
 
             Limpar();
             CarregarGrid("");
@@ -145,11 +142,11 @@ namespace _231283e231145.Views
             if (MessageBox.Show("Deseja excluir o cliente?", "Exclusão",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                cl = new Cliente()
+                cc = new Cliente()
                 {
                     Id = int.Parse(txtID.Text)
                 };
-                cl.Excluir();
+                cc.Excluir();
 
                 Limpar();
                 CarregarGrid("");
