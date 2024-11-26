@@ -30,7 +30,7 @@ namespace _231283e231145.Views
                 Nome = pesquisa,
             };
 
-            cc.Consultar();
+         dgvClientes.DataSource = cc.Consultar();
         }
         void Limpar()
         {
@@ -40,8 +40,7 @@ namespace _231283e231145.Views
             txtRenda.Clear();
             cboCidades.SelectedIndex = -1;
             mskCPF.Clear();
-            dtpDataNasc.Value = DateTime.Now;
-            picFoto.ImageLocation = "";
+            dtpDataNasc.Value = DateTime.Now;          
             chkVenda.Checked = false;
         }
 
@@ -57,6 +56,8 @@ namespace _231283e231145.Views
 
             Limpar();
             CarregarGrid("");
+
+            dgvClientes.Columns["idCidade"].Visible = false;
 
            
         }

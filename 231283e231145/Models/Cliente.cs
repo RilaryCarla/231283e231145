@@ -67,7 +67,7 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl INNER JOIN cidades ci ON (ci.id = cl.idCidade) WHERE cl.nome LIKE @nome ORDER BY cl.nome", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl INNER JOIN cidades ci ON (ci.id = cl.idCidade) WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", Nome + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
@@ -92,12 +92,11 @@ namespace _231283e231145.Models
         public void Alterar()
         {
             try
-            {
-                Banco.AbrirConexao();
+            {              
 
                 Banco.AbrirConexao();
                 Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, idCidade = @idCidade, dataNasc = @dataNasc, " +
-                    "renda = @renda, cpf = @cpf, venda = @venda WHERE id = @id ", Banco.Conexao);
+                    "renda = @renda, cpf = @cpf, venda = @venda WHERE id = @id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", Nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", IdCidade);

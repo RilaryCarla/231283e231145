@@ -96,7 +96,8 @@ namespace _231283e231145.Models
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("Select descricao, estoque, valorVenda, c.nome, m.nome FROM produtos INNER JOIN categorias c ON c.id = idCategoria INNER JOIN marcas m ON m.id = idMarca ", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Select p.*, c.categoria, m.nome FROM produtos p INNER JOIN categorias c ON c.id = idCategoria INNER JOIN marcas m ON m.id = idMarca WHERE descricao LIKE @descricao order by id ", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@descricao", Descricao + "%");
 
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
